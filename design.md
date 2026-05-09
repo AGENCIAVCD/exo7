@@ -2,7 +2,7 @@
 
 ## Visual Thesis
 
-Engenharia integrada apresentada como tecnologia construtiva premium: fundo limpo, azul técnico profundo, acentos de energia e sustentabilidade, imagens isométricas 3D como peças de um sistema de montagem rápido, preciso e confiável.
+Engenharia integrada apresentada com linguagem editorial, técnica e sóbria: fundos limpos, azul profundo como base institucional, poucas imagens grandes com função narrativa e tipografia forte para transmitir controle, velocidade e confiança.
 
 ## Paleta de Cores
 
@@ -23,10 +23,10 @@ Engenharia integrada apresentada como tecnologia construtiva premium: fundo limp
 
 ## Gradientes
 
-- `hero-field`: radial azul claro no topo direito + linear branco para `#EAF4FF`.
-- `blueprint`: `#001B4D` → `#003087`, com linhas finas translúcidas simulando blueprint.
-- `sustainability-glow`: `rgba(0,168,107,.18)` usado em halos de impacto ambiental.
-- `velocity-line`: `#007BFF` → `#00A86B`, usado em divisórias e detalhes de velocidade.
+- `clean-field`: branco e `#F7F9FC`, usado como base principal.
+- `institutional-blue`: `#071632`, usado para faixas de prova, portfólio, contato e footer.
+- `sustainability-accent`: `#00A86B`, reservado para checks e ganhos ambientais.
+- `technical-line`: bordas neutras finas para ritmo e precisão, evitando fundos poluídos.
 
 ## Tipografia
 
@@ -78,18 +78,18 @@ Regra: seções principais usam `96px–128px` no desktop e `64px–80px` no mob
 - `SectionHeader`: eyebrow técnico, título forte e texto curto.
 - `Reveal`: wrapper de animação para entrada no scroll.
 - `Metric`: número em `Space Grotesk`, legenda objetiva.
-- `AdvantageRail`: lista de vantagens com ícones isométricos grandes e texto enxuto.
-- `TechnologyPanel`: bloco editorial para EPS/Paredes Prontas e Steel Frame com imagem dominante.
+- `AdvantageRail`: lista textual com ícones lineares discretos e explicações objetivas.
+- `TechnologyFeature`: bloco editorial para EPS/Paredes Prontas e Steel Frame com uma imagem dominante por sistema.
 - `CaseShowcase`: área de portfólio com imagem ampla e metadados.
 - `ContactForm`: formulário visual pronto para integração futura.
 - `FloatingWhatsApp`: botão persistente, acessível e com label.
 
 ## Regras do Estilo Isométrico EXO7
 
-- Usar imagens em ângulo 30°/60° como protagonistas, não como decoração pequena.
+- Usar imagens em ângulo 30°/60° apenas quando explicam hero, tecnologia ou resultado final.
 - Aplicar sombras suaves azuis para sensação de objeto técnico flutuando.
-- Evitar excesso de cards competindo com os renders.
-- Combinar linhas finas de blueprint, grids discretos e halos para reforçar engenharia.
+- Evitar ícones-imagem aleatórios, mosaicos e fundos decorativos competindo com os renders.
+- Usar linhas finas e muito espaço em branco para reforçar engenharia, não excesso de efeitos.
 - As imagens devem ter `alt` descritivo e carregamento otimizado via `next/image`.
 - Motion: entrada em camada, parallax leve e hover com elevação sutil, nunca animação frenética.
 - Fundo claro com contraste azul profundo; verde só para benefício ambiental/economia.

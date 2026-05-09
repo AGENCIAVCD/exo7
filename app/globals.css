@@ -40,9 +40,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at top right, rgba(0, 123, 255, 0.12), transparent 34rem),
-    linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #eef6ff 100%);
+  background: #f7f9fc;
   color: var(--foreground);
   font-family: var(--font-jakarta), system-ui, sans-serif;
 }
