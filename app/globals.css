@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --exo-blue-950: #001b4d;
+  --exo-blue-900: #003087;
+  --exo-blue-700: #0052cc;
+  --exo-blue-500: #007bff;
+  --exo-green-500: #00a86b;
+  --exo-sky-100: #eaf4ff;
+  --exo-cloud: #f8fafc;
+  --exo-slate-600: #475569;
+  --font-jakarta: "Aptos", "Segoe UI", system-ui, sans-serif;
+  --font-space: "Aptos Display", "Segoe UI", system-ui, sans-serif;
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta);
+  --font-display: var(--font-space);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-exo-blue-950: var(--exo-blue-950);
+  --color-exo-blue-900: var(--exo-blue-900);
+  --color-exo-blue-700: var(--exo-blue-700);
+  --color-exo-blue-500: var(--exo-blue-500);
+  --color-exo-green-500: var(--exo-green-500);
+  --color-exo-sky-100: var(--exo-sky-100);
+  --color-exo-cloud: var(--exo-cloud);
+  --color-exo-slate-600: var(--exo-slate-600);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top right, rgba(0, 123, 255, 0.12), transparent 34rem),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #eef6ff 100%);
+  color: var(--foreground);
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(0, 123, 255, 0.18);
+  color: #001b4d;
+}
+
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(0, 123, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 123, 255, 0.09) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.section-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.focus-ring {
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+}
+
+.focus-ring:focus-visible {
+  outline-color: var(--exo-blue-500);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
