@@ -1,9 +1,10 @@
 import { MessageCircle } from "lucide-react";
+import { buildWhatsAppUrl } from "@/lib/contact";
 
 export function FloatingWhatsApp() {
   return (
     <a
-      href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20com%20a%20EXO7."
+      href={buildWhatsAppUrl("Olá, quero um orçamento com a EXO7.")}
       target="_blank"
       rel="noreferrer"
       aria-label="Falar com a EXO7 pelo WhatsApp"

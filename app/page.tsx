@@ -1,6 +1,8 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import {
   ArrowRight,
+  Building2,
   CheckCircle2,
   Gauge,
   Leaf,
@@ -11,11 +13,19 @@ import {
   Timer,
   Zap
 } from "lucide-react";
+import { ContactForm } from "@/components/contact-form";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { Navbar } from "@/components/navbar";
 import { Reveal } from "@/components/reveal";
 import { SectionHeader } from "@/components/section-header";
 import { ButtonLink } from "@/components/ui/button";
+import { buildWhatsAppUrl } from "@/lib/contact";
+
+export const metadata: Metadata = {
+  title: "EXO7 Build | Construção rápida com EPS, paredes prontas e Steel Frame",
+  description:
+    "Conheça a EXO7 Engenharia Integrada: obras rápidas, limpas e sustentáveis com EPS, painéis monolíticos, paredes prontas termoacústicas e Steel Frame."
+};
 
 const advantages = [
   {
@@ -80,7 +90,7 @@ const reasons: { icon: LucideIcon; title: string; text: string }[] = [
   }
 ];
 
-const whatsapp = "https://wa.me/5500000000000?text=Ol%C3%A1%2C%20quero%20planejar%20uma%20obra%20com%20a%20EXO7.";
+const whatsapp = buildWhatsAppUrl("Olá, quero planejar uma obra com a EXO7.");
 
 export default function Home() {
   return (
@@ -97,10 +107,10 @@ export default function Home() {
             <p className="mb-5 inline-flex rounded-full bg-white/80 px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-exo-blue-900 shadow-[0_12px_40px_rgba(15,23,42,.08)]">
               EXO7 Build
             </p>
-            <h1 className="text-balance font-display text-[clamp(3.4rem,8vw,7.25rem)] font-bold leading-[0.86] tracking-[-0.075em] text-slate-950">
+            <h1 className="text-balance font-display text-[clamp(3.4rem,8vw,7.25rem)] font-semibold leading-[0.86] tracking-[-0.075em] text-neutral-950">
               Engenharia que acelera o futuro da obra.
             </h1>
-            <p className="mt-7 max-w-xl text-lg leading-8 text-slate-600 md:text-xl">
+            <p className="mt-7 max-w-xl text-lg leading-8 text-exo-slate-600 md:text-xl">
               Construção integrada com EPS, paredes prontas termoacústicas, painéis monolíticos e Steel Frame para entregar mais rápido, com precisão e menos desperdício.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -120,6 +130,7 @@ export default function Home() {
               height={941}
               alt="Casa isométrica moderna construída com tecnologias EXO7"
               priority
+              sizes="(min-width: 1024px) 54vw, 100vw"
               className="relative z-10 w-full drop-shadow-[0_36px_80px_rgba(0,48,135,.22)]"
             />
           </Reveal>
@@ -138,9 +149,9 @@ export default function Home() {
           <Reveal delay={0.1}>
             <div className="grid gap-4 sm:grid-cols-2">
               {metrics.map(([value, label]) => (
-                <div key={value} className="border-t border-slate-200 pt-6">
+                <div key={value} className="border-t border-neutral-200 pt-6">
                   <strong className="font-display text-4xl tracking-[-0.06em] text-exo-blue-900">{value}</strong>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{label}</p>
+                  <p className="mt-3 text-sm leading-6 text-exo-slate-600">{label}</p>
                 </div>
               ))}
             </div>
@@ -160,16 +171,17 @@ export default function Home() {
           <div className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
             {advantages.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.04}>
-                <article className="group relative min-h-64 border-t border-slate-200 pt-6">
+                <article className="group relative min-h-64 border-t border-neutral-200 pt-6">
                   <Image
                     src={item.image}
                     width={1254}
                     height={1254}
                     alt={`Ícone isométrico EXO7: ${item.title}`}
+                    sizes="112px"
                     className="mb-2 size-28 object-contain transition duration-500 group-hover:-translate-y-2 group-hover:scale-105"
                   />
-                  <h3 className="font-display text-2xl font-bold tracking-[-0.04em] text-slate-950">{item.title}</h3>
-                  <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                  <h3 className="font-display text-2xl font-semibold tracking-[-0.04em] text-neutral-950">{item.title}</h3>
+                  <p className="mt-3 leading-7 text-exo-slate-600">{item.text}</p>
                 </article>
               </Reveal>
             ))}
@@ -225,12 +237,13 @@ export default function Home() {
                 width={1916}
                 height={821}
                 alt="Render isométrico de casa finalizada com solução construtiva EXO7"
+                sizes="(min-width: 1180px) 1180px, 100vw"
                 className="h-auto w-full object-cover"
               />
               <div className="grid gap-8 p-8 text-white md:grid-cols-[1fr_auto] md:p-10">
                 <div>
                   <p className="text-sm font-black uppercase tracking-[0.22em] text-sky-200">Residencial de alta performance</p>
-                  <h3 className="mt-3 font-display text-3xl font-bold tracking-[-0.05em]">Casa pronta para evoluir junto com o terreno, o clima e o prazo.</h3>
+                  <h3 className="mt-3 font-display text-3xl font-semibold tracking-[-0.05em]">Casa pronta para evoluir junto com o terreno, o clima e o prazo.</h3>
                 </div>
                 <ButtonLink href={whatsapp} variant="ghost" target="_blank" rel="noreferrer" className="self-center">
                   Quero um projeto assim
@@ -253,13 +266,13 @@ export default function Home() {
           <div className="grid gap-5">
             {reasons.map(({ icon: Icon, title, text }) => (
               <Reveal key={title}>
-                <div className="grid grid-cols-[3rem_1fr] gap-5 border-t border-slate-200 pt-5">
+                <div className="grid grid-cols-[3rem_1fr] gap-5 border-t border-neutral-200 pt-5">
                   <div className="grid size-12 place-items-center rounded-2xl bg-exo-blue-900 text-white">
                     <Icon size={22} />
                   </div>
                   <div>
-                    <h3 className="font-display text-xl font-bold tracking-[-0.04em] text-slate-950">{title}</h3>
-                    <p className="mt-2 leading-7 text-slate-600">{text}</p>
+                    <h3 className="font-display text-xl font-semibold tracking-[-0.04em] text-neutral-950">{title}</h3>
+                    <p className="mt-2 leading-7 text-exo-slate-600">{text}</p>
                   </div>
                 </div>
               </Reveal>
@@ -283,35 +296,19 @@ export default function Home() {
               <p className="flex items-center gap-3"><Zap size={20} /> Resposta rápida para estudos de viabilidade.</p>
               <p className="flex items-center gap-3"><Sparkles size={20} /> Soluções com EPS, paredes prontas e Steel Frame.</p>
             </div>
+            <MapCard />
           </Reveal>
           <Reveal delay={0.1}>
-            <form className="rounded-[2rem] bg-white p-5 text-slate-950 shadow-[0_30px_90px_rgba(0,0,0,.24)] md:p-8">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <Field label="Nome" placeholder="Seu nome" />
-                <Field label="WhatsApp" placeholder="(00) 00000-0000" />
-              </div>
-              <Field label="E-mail" placeholder="voce@email.com" type="email" />
-              <Field label="Tipo de obra" placeholder="Casa, comércio, ampliação..." />
-              <label className="mt-4 block">
-                <span className="text-sm font-bold text-slate-700">Mensagem</span>
-                <textarea
-                  className="focus-ring mt-2 min-h-32 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-base outline-none transition focus:bg-white"
-                  placeholder="Conte rapidamente onde será a obra, metragem aproximada e objetivo de prazo."
-                />
-              </label>
-              <ButtonLink href={whatsapp} target="_blank" rel="noreferrer" className="mt-6 w-full gap-2">
-                Enviar pelo WhatsApp <ArrowRight size={18} />
-              </ButtonLink>
-            </form>
+            <ContactForm />
           </Reveal>
         </div>
       </section>
 
       <footer className="bg-[#061636] py-10 text-white">
         <div className="section-shell flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <Image src="/assets/logo/logo-horizontal.png" width={170} height={58} alt="EXO7" className="h-9 w-auto brightness-0 invert" />
+          <Image src="/assets/logo/logo-horizontal.png" width={170} height={58} alt="EXO7" sizes="170px" className="h-9 w-auto brightness-0 invert" />
           <p className="max-w-2xl text-sm leading-6 text-blue-100">
-            EXO7 Build — engenharia integrada para obras rápidas, limpas, econômicas e sustentáveis.
+            EXO7 Build: engenharia integrada para obras rápidas, limpas, econômicas e sustentáveis.
           </p>
           <a className="focus-ring rounded-full text-sm font-bold text-blue-100 hover:text-white" href="#top">
             Voltar ao topo
@@ -340,10 +337,11 @@ function TechnologyPanel({
         width={1448}
         height={1086}
         alt={`Imagem isométrica da tecnologia ${title}`}
+        sizes="(min-width: 1024px) 560px, 100vw"
         className="aspect-[1.25] w-full rounded-[1.5rem] object-contain drop-shadow-[0_30px_70px_rgba(0,0,0,.25)] transition duration-500 group-hover:scale-[1.03]"
       />
       <div className="p-3 md:p-5">
-        <h3 className="font-display text-3xl font-bold tracking-[-0.05em]">{title}</h3>
+        <h3 className="font-display text-3xl font-semibold tracking-[-0.05em]">{title}</h3>
         <p className="mt-4 leading-7 text-blue-100">{text}</p>
         <div className="mt-6 flex flex-wrap gap-2">
           {bullets.map((bullet) => (
@@ -358,15 +356,25 @@ function TechnologyPanel({
   );
 }
 
-function Field({ label, placeholder, type = "text" }: { label: string; placeholder: string; type?: string }) {
+function MapCard() {
   return (
-    <label className="mt-4 block">
-      <span className="text-sm font-bold text-slate-700">{label}</span>
-      <input
-        type={type}
-        className="focus-ring mt-2 h-12 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 text-base outline-none transition focus:bg-white"
-        placeholder={placeholder}
-      />
-    </label>
+    <div className="mt-10 overflow-hidden rounded-[2rem] border border-white/12 bg-white/[0.06] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,.12)] backdrop-blur">
+      <div className="relative min-h-64 overflow-hidden rounded-[1.5rem] bg-[#071b42] blueprint-grid">
+        <div className="absolute left-1/2 top-1/2 size-52 -translate-x-1/2 -translate-y-1/2 rounded-full border border-exo-blue-500/30" />
+        <div className="absolute left-1/2 top-1/2 size-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-exo-green-500/35" />
+        <div className="absolute left-[18%] top-[24%] h-20 w-36 rotate-[-10deg] rounded-2xl border border-white/10 bg-white/5" />
+        <div className="absolute bottom-[18%] right-[14%] h-24 w-44 rotate-[8deg] rounded-2xl border border-white/10 bg-white/5" />
+        <div className="absolute left-1/2 top-1/2 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-3xl bg-exo-green-500 text-white shadow-[0_20px_60px_rgba(0,168,107,.35)]">
+          <MapPin size={30} />
+        </div>
+        <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-white/10 p-4 backdrop-blur">
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-sky-200">Mapa de atendimento</p>
+          <div className="mt-2 flex items-center gap-3 text-white">
+            <Building2 size={20} />
+            <span className="text-sm font-bold">Projetos sob consulta, com foco em execução rápida e industrializada.</span>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
