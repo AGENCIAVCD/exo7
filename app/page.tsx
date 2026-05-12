@@ -166,11 +166,16 @@ export default function Home() {
                 Cada obra é estruturada para reduzir desperdícios, melhorar o controle da execução e trazer mais previsibilidade ao cliente, desde o projeto até a entrega.
               </p>
               <div className="mt-7 grid gap-4 sm:grid-cols-3">
-                {whoSteps.map((step) => (
-                  <div key={step.title} className="rounded-2xl border border-neutral-200 bg-white p-4">
-                    <BadgeCheck className="mb-3 text-exo-blue-900" size={22} />
-                    <p className="font-semibold text-exo-ink">{step.title}</p>
-                    <p className="mt-1 text-sm leading-6 text-exo-muted">{step.text}</p>
+                {whoSteps.map((step, index) => (
+                  <div key={step.title} className="method-card rounded-2xl border border-neutral-200 bg-white p-4">
+                    <span className="method-step-number font-display text-5xl font-semibold tracking-[-0.07em] text-exo-blue-900/10" aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="method-icon mb-3 grid size-10 place-items-center rounded-2xl bg-exo-sky-100 text-exo-blue-900">
+                      <BadgeCheck size={21} />
+                    </div>
+                    <p className="method-title font-semibold text-exo-ink">{step.title}</p>
+                    <p className="method-text mt-1 text-sm leading-6 text-exo-muted">{step.text}</p>
                   </div>
                 ))}
               </div>
