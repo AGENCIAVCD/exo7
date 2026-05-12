@@ -227,7 +227,7 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <MediaFrame src="/assets/ultima-cta.png" alt="Casa finalizada com solução construtiva EXO7" className="aspect-[16/8]" dark />
+            <MediaFrame src="/assets/ultima-cta.png" alt="Casa finalizada com solução construtiva EXO7" className="aspect-[16/8]" dark zoom />
           </Reveal>
         </div>
       </section>
@@ -280,14 +280,7 @@ export default function Home() {
 
       <footer className="bg-[#050f24] py-8 text-white">
         <div className="section-shell flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-          <Image
-            src="/assets/logo/logo-horizontal.png"
-            width={170}
-            height={58}
-            alt="EXO7"
-            sizes="170px"
-            className="h-9 w-auto brightness-0 invert"
-          />
+          <div className="font-display text-2xl font-black tracking-[-0.04em] text-white">EXO7</div>
           <p className="text-sm leading-6 text-blue-100">
             EXO7 Build: engenharia integrada para obras rápidas, limpas, econômicas e sustentáveis.
           </p>
@@ -331,13 +324,15 @@ function MediaFrame({
   alt,
   className,
   priority = false,
-  dark = false
+  dark = false,
+  zoom = false
 }: {
   src: string;
   alt: string;
   className: string;
   priority?: boolean;
   dark?: boolean;
+  zoom?: boolean;
 }) {
   return (
     <div className={`relative overflow-hidden rounded-[1.75rem] ${dark ? "bg-white/[0.06]" : "bg-[#eef4fb]"} ${className}`}>
@@ -347,7 +342,7 @@ function MediaFrame({
         fill
         priority={priority}
         sizes="(min-width: 1024px) 560px, 100vw"
-        className="object-contain p-3"
+        className={`object-contain ${zoom ? "scale-125 p-0" : "p-3"}`}
       />
     </div>
   );
