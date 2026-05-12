@@ -2,23 +2,27 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "EXO7 Build | Engenharia integrada em EPS, Steel Frame e paredes prontas",
+  title: "EXO7 Build | Engenharia integrada para obras previsíveis",
   description:
-    "Construção rápida, limpa e sustentável com EPS, painéis monolíticos, paredes prontas termoacústicas e Steel Frame.",
+    "Planejamento e execução de obras residenciais, comerciais e ampliações com mais organização, previsibilidade e tecnologia construtiva aplicada.",
   keywords: [
     "EXO7",
     "engenharia integrada",
+    "execução de obras",
+    "planejamento de obras",
+    "obras residenciais",
+    "obras comerciais",
+    "ampliações",
     "construção EPS",
     "paredes prontas",
-    "painéis monolíticos",
     "steel frame",
-    "construção sustentável"
+    "alvenaria convencional"
   ],
   metadataBase: new URL("https://exo7.vercel.app"),
   openGraph: {
-    title: "EXO7 Build | Engenharia integrada de alta velocidade",
+    title: "EXO7 Build | Planejamento, tecnologia e execução",
     description:
-      "Obras mais rápidas, limpas, econômicas e sustentáveis com tecnologias construtivas industrializadas.",
+      "Engenharia integrada para obras com mais previsibilidade, organização e eficiência construtiva.",
     url: "https://exo7.vercel.app",
     siteName: "EXO7 Build",
     images: [{ url: "/assets/hero.png", width: 1672, height: 941 }],

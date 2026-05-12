@@ -22,17 +22,32 @@ import { ButtonLink } from "@/components/ui/button";
 import { buildWhatsAppUrl } from "@/lib/contact";
 
 export const metadata: Metadata = {
-  title: "EXO7 Build | Engenharia integrada para obra rápida",
+  title: "EXO7 Build | Engenharia integrada para obras previsíveis",
   description:
-    "Site da EXO7 Build: construção com EPS, paredes prontas termoacústicas, painéis monolíticos e Steel Frame."
+    "EXO7 Build: planejamento e execução de obras residenciais, comerciais e ampliações com tecnologia construtiva aplicada."
 };
 
 const whatsapp = buildWhatsAppUrl("Olá, quero planejar uma obra com a EXO7.");
 
 const proof = [
-  { value: "28 dias", label: "referência para casas compactas" },
-  { value: "4x", label: "mais velocidade em etapas de vedação" },
-  { value: "70%", label: "menos resíduos em sistemas industrializados" }
+  { value: "Mais", label: "agilidade na execução" },
+  { value: "Até 4x", label: "mais velocidade em etapas construtivas" },
+  { value: "Mais", label: "previsibilidade durante a obra" }
+];
+
+const whoSteps = [
+  {
+    title: "Projeto",
+    text: "Compatibilização entre arquitetura, estrutura e execução."
+  },
+  {
+    title: "Sistema",
+    text: "Escolha das soluções ideais para prazo, custo e desempenho."
+  },
+  {
+    title: "Execução",
+    text: "Obra organizada com menos improviso e mais controle."
+  }
 ];
 
 const advantages = [
@@ -54,22 +69,22 @@ const advantages = [
   {
     icon: Ruler,
     title: "Execução precisa",
-    text: "Medidas, encaixes e interferências são resolvidos antes da montagem."
+    text: "Menos retrabalho e mais controle durante a execução da obra."
   }
 ];
 
 const technologies = [
   {
-    title: "EPS e Paredes Prontas",
-    subtitle: "Vedação rápida com conforto termoacústico.",
-    text: "Indicado para obras que precisam reduzir etapas, melhorar isolamento e ganhar previsibilidade no fechamento.",
+    title: "Soluções termoacústicas",
+    subtitle: "Conforto, desempenho e obra mais eficiente.",
+    text: "Sistemas construtivos utilizados para acelerar etapas da obra, melhorar conforto e reduzir desperdícios.",
     image: "/assets/eps-paredes-prontas.png",
     bullets: ["montagem rápida", "menos entulho", "bom isolamento"]
   },
   {
-    title: "Steel Frame",
-    subtitle: "Estrutura leve para execução limpa.",
-    text: "Sistema ideal para construções ágeis, ampliações e projetos que pedem precisão, menor peso e canteiro organizado.",
+    title: "Estruturas leves industrializadas",
+    subtitle: "Precisão construtiva para obras e ampliações.",
+    text: "Soluções indicadas para obras rápidas, ampliações e projetos que exigem precisão construtiva.",
     image: "/assets/steel-frame.png",
     bullets: ["estrutura leve", "alta precisão", "obra seca"]
   },
@@ -84,10 +99,10 @@ const technologies = [
 ];
 
 const exoReasons = [
-  ["01", "Compatibilização", "Projeto, sistema construtivo e execução definidos no mesmo raciocínio."],
-  ["02", "Cronograma", "Tecnologia escolhida pelo impacto real no prazo da obra."],
-  ["03", "Canteiro", "Menos entulho, menos etapas úmidas e menos improviso."],
-  ["04", "Cliente", "Comunicação clara sobre escolhas, etapas e próximos passos."]
+  ["01", "Compatibilização", "Projeto, estrutura e execução alinhados no mesmo planejamento."],
+  ["02", "Cronograma", "Soluções escolhidas pelo impacto real no prazo da obra."],
+  ["03", "Canteiro", "Menos etapas úmidas, menos entulho e mais organização."],
+  ["04", "Cliente", "Comunicação clara sobre etapas, escolhas técnicas e andamento da obra."]
 ];
 
 export default function Home() {
@@ -102,10 +117,10 @@ export default function Home() {
             <div className="max-w-2xl">
               <p className="eyebrow">EXO7 Build</p>
               <h1 className="mt-4 text-balance font-display text-5xl font-semibold leading-[0.95] tracking-[-0.065em] text-exo-ink md:text-7xl">
-                Construção rápida, limpa e bem planejada.
+                Engenharia integrada para obras mais rápidas, organizadas e previsíveis.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-8 text-exo-muted">
-                Engenharia integrada para executar obras com EPS, paredes prontas termoacústicas e Steel Frame, reduzindo improviso, sujeira e atraso no canteiro.
+                A EXO7 atua no planejamento e execução de obras residenciais, comerciais e ampliações, utilizando tecnologias construtivas para reduzir desperdícios, atrasos e improvisos no canteiro.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <ButtonLink href={whatsapp} target="_blank" rel="noreferrer" className="gap-2">
@@ -145,14 +160,17 @@ export default function Home() {
           <Reveal delay={0.06}>
             <div className="content-panel">
               <p className="text-xl leading-9 tracking-[-0.025em] text-exo-ink md:text-2xl">
-                O trabalho começa na compatibilização entre projeto, sistema construtivo, materiais e cronograma. Assim, a execução fica mais previsível e o cliente entende o que será feito, quando será feito e por quê.
+                A EXO7 é uma empresa de engenharia focada em planejamento, compatibilização e execução de obras modernas.
+                <br />
+                <br />
+                Cada obra é estruturada para reduzir desperdícios, melhorar o controle da execução e trazer mais previsibilidade ao cliente, desde o projeto até a entrega.
               </p>
               <div className="mt-7 grid gap-4 sm:grid-cols-3">
-                {["Projeto", "Sistema", "Execução"].map((step) => (
-                  <div key={step} className="rounded-2xl border border-neutral-200 bg-white p-4">
+                {whoSteps.map((step) => (
+                  <div key={step.title} className="rounded-2xl border border-neutral-200 bg-white p-4">
                     <BadgeCheck className="mb-3 text-exo-blue-900" size={22} />
-                    <p className="font-semibold text-exo-ink">{step}</p>
-                    <p className="mt-1 text-sm leading-6 text-exo-muted">decisão técnica conectada ao prazo</p>
+                    <p className="font-semibold text-exo-ink">{step.title}</p>
+                    <p className="mt-1 text-sm leading-6 text-exo-muted">{step.text}</p>
                   </div>
                 ))}
               </div>
@@ -194,8 +212,8 @@ export default function Home() {
           <Reveal>
             <SectionIntro
               eyebrow="Tecnologias"
-              title="Três caminhos para construir com mais controle."
-              text="EPS, Steel Frame e alvenaria convencional entram no mesmo raciocínio: escolher o sistema certo para prazo, orçamento e perfil do cliente."
+              title="Tecnologias construtivas aplicadas pela EXO7."
+              text="A EXO7 utiliza diferentes soluções construtivas conforme a necessidade da obra, prazo, orçamento e desempenho esperado."
             />
           </Reveal>
           <div className="mt-10 grid items-stretch gap-5 lg:grid-cols-3 lg:[grid-auto-rows:1fr]">
@@ -241,8 +259,8 @@ export default function Home() {
             <div className="max-w-[42rem] rounded-[2rem] border border-white/10 bg-[#06142f]/72 p-7 shadow-[0_30px_90px_rgba(0,0,0,.28)] backdrop-blur-md md:p-9">
               <SectionIntro
                 eyebrow="Portfólio"
-                title="Resultado final com método por trás."
-                text="Acabamento, organização e sistema construtivo bem resolvido em uma entrega limpa, previsível e compatível com o projeto."
+                title="Obras planejadas para reduzir atraso e desperdício."
+                text="Residências, ampliações e projetos executados com foco em organização, velocidade construtiva e qualidade final."
                 light
               />
               <div className="mt-7 grid gap-3 text-sm leading-6 text-blue-100">
@@ -261,7 +279,7 @@ export default function Home() {
             <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
               <SectionIntro
                 eyebrow="Por que EXO7"
-                title="Mais engenharia, menos tentativa e erro."
+                title="Mais planejamento, menos improviso."
                 text="Uma distribuição mais completa da operação: planejamento, tecnologia, obra e comunicação no mesmo sistema."
               />
               <div className="rounded-[2rem] bg-exo-ink p-6 text-white">
@@ -308,12 +326,12 @@ export default function Home() {
             <SectionIntro
               eyebrow="Contato"
               title="Vamos definir o sistema certo para sua obra."
-              text="Envie cidade, metragem aproximada e tipo de projeto. A EXO7 responde com uma direção técnica inicial."
+              text="Atendimento técnico inicial sem compromisso. Envie cidade, metragem aproximada e tipo de projeto. A EXO7 responde com uma direção técnica inicial."
               light
             />
             <div className="mt-7 rounded-3xl border border-white/10 bg-white/[0.04] p-5">
               <p className="flex gap-3 text-sm leading-6 text-blue-100"><Zap className="mt-0.5 shrink-0 text-exo-blue-500" size={18} /> Atendimento para casas, ampliações e projetos comerciais.</p>
-              <p className="mt-3 flex gap-3 text-sm leading-6 text-blue-100"><Hammer className="mt-0.5 shrink-0 text-exo-blue-500" size={18} /> EPS, paredes prontas, painéis monolíticos e Steel Frame.</p>
+              <p className="mt-3 flex gap-3 text-sm leading-6 text-blue-100"><Hammer className="mt-0.5 shrink-0 text-exo-blue-500" size={18} /> Planejamento, tecnologia e execução conectados na mesma obra.</p>
             </div>
           </Reveal>
           <Reveal delay={0.08}>
@@ -334,7 +352,7 @@ export default function Home() {
             </div>
           </div>
           <p className="text-sm leading-6 text-blue-100">
-            EXO7 Build: engenharia integrada para obras rápidas, limpas, econômicas e sustentáveis.
+            EXO7 Build — engenharia integrada para obras com mais previsibilidade, organização e eficiência construtiva.
           </p>
           <a className="focus-ring rounded-full text-sm font-bold text-blue-100 hover:text-white" href="#top">
             Voltar ao topo
