@@ -23,8 +23,11 @@ export function ButtonLink({
   className,
   children,
   variant = "primary",
+  style,
   ...props
 }: ButtonLinkProps) {
+  const textColor = variant === "secondary" ? "#001b4d" : "#ffffff";
+
   return (
     <Link
       className={cn(
@@ -32,6 +35,7 @@ export function ButtonLink({
         variants[variant],
         className
       )}
+      style={{ color: textColor, ...style }}
       {...props}
     >
       {children}

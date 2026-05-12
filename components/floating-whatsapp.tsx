@@ -28,6 +28,7 @@ export function FloatingWhatsApp() {
         rel="noreferrer"
         aria-label="Falar com a EXO7 pelo WhatsApp"
         className="focus-ring grid size-14 place-items-center rounded-full bg-exo-green-500 text-white shadow-[0_8px_32px_rgba(0,168,107,.35)] transition hover:-translate-y-1"
+        style={{ color: "#ffffff" }}
       >
         <MessageCircle size={26} />
       </a>
@@ -39,6 +40,7 @@ export function FloatingWhatsApp() {
       className={`focus-ring fixed bottom-5 right-5 z-50 grid size-12 place-items-center rounded-full bg-exo-blue-900 text-white shadow-[0_8px_32px_rgba(0,48,135,.28)] transition duration-300 hover:-translate-y-1 ${
         showTop ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       }`}
+      style={{ color: "#ffffff" }}
     >
       <ArrowUp size={22} />
     </button>

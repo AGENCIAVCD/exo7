@@ -55,6 +55,7 @@ export function ContactForm() {
       <button
         type="submit"
         className="focus-ring mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-exo-blue-900 px-6 text-sm font-extrabold text-white transition hover:bg-exo-blue-700"
+        style={{ color: "#ffffff" }}
       >
         Enviar pelo WhatsApp <ArrowRight size={18} />
       </button>
