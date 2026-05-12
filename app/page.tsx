@@ -96,8 +96,8 @@ export default function Home() {
       <Navbar />
       <FloatingWhatsApp />
 
-      <section className="border-b border-neutral-200 bg-white pt-24">
-        <div className="section-shell grid gap-8 py-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-14">
+      <section className="border-b border-neutral-200 bg-white pt-14 md:pt-16">
+        <div className="section-shell grid gap-8 py-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-10">
           <Reveal>
             <div className="max-w-2xl">
               <p className="eyebrow">EXO7 Build</p>
