@@ -72,6 +72,14 @@ const technologies = [
     text: "Sistema ideal para construções ágeis, ampliações e projetos que pedem precisão, menor peso e canteiro organizado.",
     image: "/assets/steel-frame.png",
     bullets: ["estrutura leve", "alta precisão", "obra seca"]
+  },
+  {
+    title: "Alvenaria Convencional",
+    subtitle: "O padrão tradicional com gestão técnica.",
+    text: "Para clientes que preferem o método mais conhecido, a EXO7 coordena projeto, mão de obra, compras e cronograma para reduzir retrabalho.",
+    image: "/assets/hero.png",
+    bullets: ["padrão conhecido", "obra coordenada", "controle técnico"],
+    zoom: true
   }
 ];
 
@@ -186,16 +194,16 @@ export default function Home() {
           <Reveal>
             <SectionIntro
               eyebrow="Tecnologias"
-              title="Duas frentes para acelerar sem bagunçar a obra."
-              text="Cada tecnologia aparece com uma imagem contida, descrição objetiva e uso claro."
+              title="Três caminhos para construir com mais controle."
+              text="EPS, Steel Frame e alvenaria convencional entram no mesmo raciocínio: escolher o sistema certo para prazo, orçamento e perfil do cliente."
             />
           </Reveal>
-          <div className="mt-10 grid items-stretch gap-5 lg:grid-cols-2 lg:[grid-auto-rows:1fr]">
+          <div className="mt-10 grid items-stretch gap-5 lg:grid-cols-3 lg:[grid-auto-rows:1fr]">
             {technologies.map((tech) => (
               <Reveal key={tech.title} className="h-full">
                 <article className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-neutral-200 bg-white shadow-sm">
                   <div className="bg-[#f2f6fb] p-4">
-                    <MediaFrame src={tech.image} alt={`Sistema EXO7: ${tech.title}`} className="aspect-[4/3]" />
+                    <MediaFrame src={tech.image} alt={`Sistema EXO7: ${tech.title}`} className="aspect-[4/3]" zoom={tech.zoom} />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <p className="eyebrow">{tech.title}</p>
