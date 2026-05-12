@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import {
   ArrowRight,
   BadgeCheck,
@@ -162,14 +163,17 @@ export default function Home() {
             />
           </Reveal>
           <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {advantages.map(({ icon: Icon, title, text }) => (
+            {advantages.map(({ icon: Icon, title, text }, index) => (
               <Reveal key={title}>
-                <article className="h-full rounded-3xl border border-neutral-200 bg-white p-5 shadow-sm">
-                  <div className="grid size-11 place-items-center rounded-2xl bg-exo-sky-100 text-exo-blue-900">
+                <article
+                  className="advantage-card h-full rounded-3xl border border-neutral-200 bg-white p-5 shadow-sm"
+                  style={{ "--card-index": index } as CSSProperties}
+                >
+                  <div className="advantage-icon grid size-11 place-items-center rounded-2xl bg-exo-sky-100 text-exo-blue-900">
                     <Icon size={21} />
                   </div>
-                  <h3 className="mt-5 font-display text-xl font-semibold tracking-[-0.035em] text-exo-ink">{title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-exo-muted">{text}</p>
+                  <h3 className="advantage-title mt-5 font-display text-xl font-semibold tracking-[-0.035em] text-exo-ink">{title}</h3>
+                  <p className="advantage-text mt-3 text-sm leading-6 text-exo-muted">{text}</p>
                 </article>
               </Reveal>
             ))}
