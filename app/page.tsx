@@ -190,20 +190,20 @@ export default function Home() {
               text="Cada tecnologia aparece com uma imagem contida, descrição objetiva e uso claro."
             />
           </Reveal>
-          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+          <div className="mt-10 grid items-stretch gap-5 lg:grid-cols-2 lg:[grid-auto-rows:1fr]">
             {technologies.map((tech) => (
-              <Reveal key={tech.title}>
-                <article className="overflow-hidden rounded-[2rem] border border-neutral-200 bg-white shadow-sm">
+              <Reveal key={tech.title} className="h-full">
+                <article className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-neutral-200 bg-white shadow-sm">
                   <div className="bg-[#f2f6fb] p-4">
                     <MediaFrame src={tech.image} alt={`Sistema EXO7: ${tech.title}`} className="aspect-[4/3]" />
                   </div>
-                  <div className="p-6">
+                  <div className="flex flex-1 flex-col p-6">
                     <p className="eyebrow">{tech.title}</p>
                     <h3 className="mt-3 font-display text-3xl font-semibold leading-tight tracking-[-0.045em] text-exo-ink">
                       {tech.subtitle}
                     </h3>
                     <p className="mt-4 leading-7 text-exo-muted">{tech.text}</p>
-                    <div className="mt-5 flex flex-wrap gap-2">
+                    <div className="mt-auto flex flex-wrap gap-2 pt-5">
                       {tech.bullets.map((bullet) => (
                         <span key={bullet} className="rounded-full bg-exo-sky-100 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-exo-blue-900">
                           {bullet}
