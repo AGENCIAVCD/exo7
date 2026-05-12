@@ -272,12 +272,21 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal delay={0.06}>
-            <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              {exoReasons.map(([number, title, text]) => (
-                <article key={title} className="min-h-56 rounded-[1.75rem] border border-neutral-200 bg-exo-page p-5">
-                  <p className="font-display text-5xl font-semibold tracking-[-0.07em] text-exo-blue-900/18">{number}</p>
-                  <h3 className="mt-8 font-display text-xl font-semibold tracking-[-0.035em] text-exo-ink">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-exo-muted">{text}</p>
+            <div className="flow-track mt-10 grid gap-5 lg:grid-cols-4">
+              {exoReasons.map(([number, title, text], index) => (
+                <article key={title} className="flow-step relative min-h-60 rounded-[1.75rem] border border-neutral-200 bg-exo-page p-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="flow-number font-display text-5xl font-semibold tracking-[-0.07em] text-exo-blue-900/18">{number}</span>
+                    {index < exoReasons.length - 1 ? (
+                      <span className="flow-arrow" aria-hidden="true">
+                        <ArrowRight size={18} />
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="mt-10">
+                    <h3 className="font-display text-xl font-semibold tracking-[-0.035em] text-exo-ink">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-exo-muted">{text}</p>
+                  </div>
                 </article>
               ))}
             </div>
