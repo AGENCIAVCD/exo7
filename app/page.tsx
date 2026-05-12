@@ -211,13 +211,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="portfolio" className="section-block bg-exo-ink text-white">
-        <div className="section-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <section id="portfolio" className="relative overflow-hidden bg-exo-ink text-white">
+        <img
+          src="/assets/ultima-cta.png"
+          alt=""
+          className="pointer-events-none absolute inset-y-0 right-[-6%] hidden h-full w-[76%] object-cover object-right opacity-90 lg:block"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,15,36,.96)_0%,rgba(5,15,36,.84)_38%,rgba(5,15,36,.34)_72%,rgba(5,15,36,.18)_100%)]" />
+        <div className="section-shell relative grid min-h-[34rem] items-center py-16 md:py-20 lg:grid-cols-[0.72fr_1.28fr]">
           <Reveal>
             <SectionIntro
               eyebrow="Portfólio"
               title="Resultado final com método por trás."
-              text="A imagem precisa mostrar o destino da obra: acabamento, organização e sistema construtivo bem resolvido."
+              text="A imagem entra como atmosfera da seção: acabamento, organização e sistema construtivo bem resolvido."
               light
             />
             <div className="mt-7 grid gap-3 text-sm leading-6 text-blue-100">
@@ -225,9 +232,6 @@ export default function Home() {
               <p className="flex gap-2"><CheckCircle2 className="mt-0.5 shrink-0 text-exo-green-500" size={18} /> Menos interferência e mais previsibilidade.</p>
               <p className="flex gap-2"><CheckCircle2 className="mt-0.5 shrink-0 text-exo-green-500" size={18} /> Solução compatível com uso, prazo e orçamento.</p>
             </div>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <MediaFrame src="/assets/ultima-cta.png" alt="Casa finalizada com solução construtiva EXO7" className="aspect-[16/8]" dark zoom />
           </Reveal>
         </div>
       </section>
@@ -343,14 +347,16 @@ function MediaFrame({
   zoom?: boolean;
 }) {
   return (
-    <div className={`relative overflow-hidden rounded-[1.75rem] ${dark ? "bg-white/[0.06]" : "bg-[#eef4fb]"} ${className}`}>
+    <div className={`grid place-items-center overflow-hidden rounded-[1.75rem] ${dark ? "bg-white/[0.06]" : "bg-[#eef4fb]"} ${className}`}>
       <Image
         src={src}
         alt={alt}
-        fill
+        width={1916}
+        height={1086}
         priority={priority}
+        loading={priority ? "eager" : "eager"}
         sizes="(min-width: 1024px) 560px, 100vw"
-        className={`object-contain ${zoom ? "scale-125 p-0" : "p-3"}`}
+        className={`h-full w-full object-contain ${zoom ? "scale-125 p-0" : "p-3"}`}
       />
     </div>
   );
