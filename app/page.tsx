@@ -218,26 +218,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="portfolio" className="relative overflow-hidden bg-exo-ink text-white">
-        <img
+      <section id="portfolio" className="relative isolate overflow-hidden bg-exo-ink text-white">
+        <Image
           src="/assets/ultima-cta.png"
-          alt=""
-          className="pointer-events-none absolute inset-y-0 right-[-6%] hidden h-full w-[76%] object-cover object-right opacity-90 lg:block"
-          aria-hidden="true"
+          alt="Residência finalizada com acabamento moderno em sistema construtivo EXO7"
+          fill
+          sizes="100vw"
+          className="pointer-events-none absolute inset-0 -z-20 scale-[1.03] object-cover object-[70%_center] opacity-80"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,15,36,.96)_0%,rgba(5,15,36,.84)_38%,rgba(5,15,36,.34)_72%,rgba(5,15,36,.18)_100%)]" />
-        <div className="section-shell relative grid min-h-[34rem] items-center py-16 md:py-20 lg:grid-cols-[0.72fr_1.28fr]">
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(2,11,30,.98)_0%,rgba(2,11,30,.94)_28%,rgba(2,11,30,.72)_48%,rgba(2,11,30,.34)_68%,rgba(2,11,30,.16)_100%)]" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_72%_50%,rgba(0,123,255,.16),transparent_34%),linear-gradient(180deg,rgba(2,11,30,.16),rgba(2,11,30,.78))]" />
+        <div className="section-shell relative grid min-h-[36rem] items-center py-16 md:py-24">
           <Reveal>
-            <SectionIntro
-              eyebrow="Portfólio"
-              title="Resultado final com método por trás."
-              text="A imagem entra como atmosfera da seção: acabamento, organização e sistema construtivo bem resolvido."
-              light
-            />
-            <div className="mt-7 grid gap-3 text-sm leading-6 text-blue-100">
-              <p className="flex gap-2"><CheckCircle2 className="mt-0.5 shrink-0 text-exo-green-500" size={18} /> Projeto pensado para execução rápida.</p>
-              <p className="flex gap-2"><CheckCircle2 className="mt-0.5 shrink-0 text-exo-green-500" size={18} /> Menos interferência e mais previsibilidade.</p>
-              <p className="flex gap-2"><CheckCircle2 className="mt-0.5 shrink-0 text-exo-green-500" size={18} /> Solução compatível com uso, prazo e orçamento.</p>
+            <div className="max-w-[42rem] rounded-[2rem] border border-white/10 bg-[#06142f]/72 p-7 shadow-[0_30px_90px_rgba(0,0,0,.28)] backdrop-blur-md md:p-9">
+              <SectionIntro
+                eyebrow="Portfólio"
+                title="Resultado final com método por trás."
+                text="Acabamento, organização e sistema construtivo bem resolvido em uma entrega limpa, previsível e compatível com o projeto."
+                light
+              />
+              <div className="mt-7 grid gap-3 text-sm leading-6 text-blue-100">
+                <p className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3"><CheckCircle2 className="mt-0.5 shrink-0 text-exo-green-500" size={18} /> Projeto pensado para execução rápida.</p>
+                <p className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3"><CheckCircle2 className="mt-0.5 shrink-0 text-exo-green-500" size={18} /> Menos interferência e mais previsibilidade.</p>
+                <p className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3"><CheckCircle2 className="mt-0.5 shrink-0 text-exo-green-500" size={18} /> Solução compatível com uso, prazo e orçamento.</p>
+              </div>
             </div>
           </Reveal>
         </div>
