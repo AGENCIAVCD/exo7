@@ -347,14 +347,15 @@ export default function Home() {
 
       <footer className="bg-[#050f24] py-8 text-white">
         <div className="section-shell flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-          <div className="inline-flex items-center gap-3">
-            <span className="grid size-10 place-items-center rounded-xl bg-white text-sm font-black tracking-[-0.08em] text-exo-blue-900">
-              E7
-            </span>
-            <div>
-              <p className="font-display text-xl font-black leading-none tracking-[-0.05em] text-white">EXO7</p>
-              <p className="mt-1 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-blue-200">Engenharia Integrada</p>
-            </div>
+          <div className="inline-flex w-fit items-center rounded-2xl bg-white px-4 py-3 shadow-[0_18px_45px_rgba(0,0,0,.22)]">
+            <Image
+              src="/assets/logo/logo-horizontal.png"
+              width={180}
+              height={60}
+              alt="Logo EXO7 Engenharia Integrada"
+              sizes="180px"
+              className="h-10 w-auto object-contain"
+            />
           </div>
           <p className="text-sm leading-6 text-blue-100">
             EXO7 Build — engenharia integrada para obras com mais previsibilidade, organização e eficiência construtiva.
