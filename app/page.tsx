@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
+import { HeroVideo } from "@/components/hero-video";
 import { Navbar } from "@/components/navbar";
 import { Reveal } from "@/components/reveal";
 import { ButtonLink } from "@/components/ui/button";
@@ -73,6 +74,13 @@ const technologies = [
   }
 ];
 
+const exoReasons = [
+  ["01", "Compatibilização", "Projeto, sistema construtivo e execução definidos no mesmo raciocínio."],
+  ["02", "Cronograma", "Tecnologia escolhida pelo impacto real no prazo da obra."],
+  ["03", "Canteiro", "Menos entulho, menos etapas úmidas e menos improviso."],
+  ["04", "Cliente", "Comunicação clara sobre escolhas, etapas e próximos passos."]
+];
+
 export default function Home() {
   return (
     <main id="top" className="bg-exo-page text-neutral-950">
@@ -101,12 +109,7 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <MediaFrame
-              src="/assets/hero.png"
-              alt="Projeto residencial isométrico da EXO7"
-              priority
-              className="aspect-[16/10]"
-            />
+            <HeroVideo />
           </Reveal>
         </div>
       </section>
@@ -237,25 +240,37 @@ export default function Home() {
       </section>
 
       <section id="por-que" className="section-block bg-white">
-        <div className="section-shell grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="section-shell">
           <Reveal>
-            <SectionIntro
-              eyebrow="Por que EXO7"
-              title="Mais engenharia, menos tentativa e erro."
-            />
+            <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+              <SectionIntro
+                eyebrow="Por que EXO7"
+                title="Mais engenharia, menos tentativa e erro."
+                text="Uma distribuição mais completa da operação: planejamento, tecnologia, obra e comunicação no mesmo sistema."
+              />
+              <div className="rounded-[2rem] bg-exo-ink p-6 text-white">
+                <div className="flex items-start gap-4">
+                  <div className="grid size-12 shrink-0 place-items-center rounded-2xl bg-white/10 text-exo-green-500">
+                    <ShieldCheck size={23} />
+                  </div>
+                  <div>
+                    <p className="font-display text-2xl font-semibold tracking-[-0.04em]">Método EXO7</p>
+                    <p className="mt-2 leading-7 text-blue-100">
+                      A obra é conduzida por decisões técnicas conectadas ao prazo, ao orçamento e à execução.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </Reveal>
           <Reveal delay={0.06}>
-            <div className="grid gap-3">
-              {[
-                ["Compatibilização", "Projeto, sistema construtivo e execução definidos no mesmo raciocínio."],
-                ["Cronograma", "Tecnologia escolhida pelo impacto real no prazo da obra."],
-                ["Canteiro", "Menos entulho, menos etapas úmidas e menos improviso."],
-                ["Cliente", "Comunicação clara sobre escolhas, etapas e próximos passos."]
-              ].map(([title, text]) => (
-                <div key={title} className="rounded-2xl border border-neutral-200 bg-exo-page p-5">
-                  <h3 className="font-display text-xl font-semibold tracking-[-0.035em] text-exo-ink">{title}</h3>
-                  <p className="mt-2 leading-7 text-exo-muted">{text}</p>
-                </div>
+            <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {exoReasons.map(([number, title, text]) => (
+                <article key={title} className="min-h-56 rounded-[1.75rem] border border-neutral-200 bg-exo-page p-5">
+                  <p className="font-display text-5xl font-semibold tracking-[-0.07em] text-exo-blue-900/18">{number}</p>
+                  <h3 className="mt-8 font-display text-xl font-semibold tracking-[-0.035em] text-exo-ink">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-exo-muted">{text}</p>
+                </article>
               ))}
             </div>
           </Reveal>
