@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
+  --background: #f7f9fc;
   --foreground: #0f172a;
   --exo-blue-950: #001b4d;
   --exo-blue-900: #003087;
@@ -9,15 +9,16 @@
   --exo-blue-500: #007bff;
   --exo-green-500: #00a86b;
   --exo-sky-100: #eaf4ff;
-  --exo-cloud: #f8fafc;
-  --exo-slate-600: #475569;
-  --font-jakarta: "Aptos", "Segoe UI", system-ui, sans-serif;
-  --font-space: "Aptos Display", "Segoe UI", system-ui, sans-serif;
+  --exo-page: #f7f9fc;
+  --exo-ink: #071632;
+  --exo-muted: #475569;
+  --font-body: "Aptos", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Aptos Display", "Segoe UI", system-ui, sans-serif;
 }
 
 @theme inline {
-  --font-sans: var(--font-jakarta);
-  --font-display: var(--font-space);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-exo-blue-950: var(--exo-blue-950);
@@ -26,8 +27,9 @@
   --color-exo-blue-500: var(--exo-blue-500);
   --color-exo-green-500: var(--exo-green-500);
   --color-exo-sky-100: var(--exo-sky-100);
-  --color-exo-cloud: var(--exo-cloud);
-  --color-exo-slate-600: var(--exo-slate-600);
+  --color-exo-page: var(--exo-page);
+  --color-exo-ink: var(--exo-ink);
+  --color-exo-muted: var(--exo-muted);
 }
 
 * {
@@ -36,13 +38,16 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
   margin: 0;
-  background: #f7f9fc;
+  background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -52,23 +57,33 @@ a {
 
 ::selection {
   background: rgba(0, 123, 255, 0.18);
-  color: #001b4d;
+  color: var(--exo-ink);
 }
 
-.blueprint-grid {
-  background-image:
-    linear-gradient(rgba(0, 123, 255, 0.09) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 123, 255, 0.09) 1px, transparent 1px);
-  background-size: 44px 44px;
+.section-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.section-block {
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
 }
 
 .text-balance {
   text-wrap: balance;
 }
 
-.section-shell {
-  width: min(1180px, calc(100% - 32px));
-  margin-inline: auto;
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--exo-blue-900);
+}
+
+.content-panel {
+  border-top: 1px solid rgb(229 229 229);
+  padding-top: 1.5rem;
 }
 
 .focus-ring {
@@ -78,6 +93,12 @@ a {
 
 .focus-ring:focus-visible {
   outline-color: var(--exo-blue-500);
+}
+
+input,
+textarea,
+button {
+  font: inherit;
 }
 
 @media (prefers-reduced-motion: reduce) {

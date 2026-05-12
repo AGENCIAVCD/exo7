@@ -96,10 +96,10 @@ Regra: seções principais usam `96px–128px` no desktop e `64px–80px` no mob
 
 ## Motion
 
-- Hero: texto sobe com fade, imagem isométrica entra com escala suave e leve flutuação.
-- Scroll: seções revelam em stagger; imagens têm parallax mínimo.
-- Hover: botões avançam 2px, painéis elevam e linhas técnicas aparecem.
-- Respeitar `prefers-reduced-motion` via Framer Motion e CSS.
+- Movimento mínimo e funcional: hover curto em botões e links.
+- Evitar parallax, counters animados, overlays pulsantes e entrada tardia de conteúdo.
+- As imagens devem aparecer estáveis desde o carregamento, sempre dentro de containers com proporção fixa.
+- Respeitar `prefers-reduced-motion` via CSS.
 
 ## Acessibilidade e SEO
 

@@ -36,49 +36,25 @@ export function ContactForm() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="rounded-[2rem] bg-white p-5 text-neutral-950 shadow-[0_30px_90px_rgba(0,0,0,.24)] md:p-8"
-    >
+    <form onSubmit={handleSubmit} className="rounded-[2rem] bg-white p-5 text-exo-ink shadow-2xl md:p-7">
       <div className="grid gap-4 sm:grid-cols-2">
-        <Field
-          label="Nome"
-          value={form.name}
-          placeholder="Seu nome"
-          onChange={(value) => updateField("name", value)}
-        />
-        <Field
-          label="WhatsApp"
-          value={form.phone}
-          placeholder="(00) 00000-0000"
-          onChange={(value) => updateField("phone", value)}
-        />
+        <Field label="Nome" value={form.name} placeholder="Seu nome" onChange={(value) => updateField("name", value)} />
+        <Field label="WhatsApp" value={form.phone} placeholder="(00) 00000-0000" onChange={(value) => updateField("phone", value)} />
       </div>
-      <Field
-        label="E-mail"
-        value={form.email}
-        placeholder="contato@email.com"
-        type="email"
-        onChange={(value) => updateField("email", value)}
-      />
-      <Field
-        label="Tipo de obra"
-        value={form.projectType}
-        placeholder="Casa, comércio, ampliação..."
-        onChange={(value) => updateField("projectType", value)}
-      />
+      <Field label="E-mail" value={form.email} placeholder="contato@email.com" type="email" onChange={(value) => updateField("email", value)} />
+      <Field label="Tipo de obra" value={form.projectType} placeholder="Casa, comércio, ampliação..." onChange={(value) => updateField("projectType", value)} />
       <label className="mt-4 block">
-        <span className="text-sm font-bold text-neutral-700">Mensagem</span>
+        <span className="mb-2 block text-sm font-bold text-exo-ink">Mensagem</span>
         <textarea
-          className="focus-ring mt-2 min-h-32 w-full rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-base outline-none transition focus:bg-white"
-          placeholder="Conte rapidamente onde será a obra, metragem aproximada e objetivo de prazo."
+          className="focus-ring min-h-28 w-full rounded-2xl border border-neutral-200 bg-exo-page px-4 py-3 text-base text-exo-ink outline-none transition focus:border-exo-blue-500 focus:bg-white"
+          placeholder="Conte onde será a obra, metragem aproximada e prazo desejado."
           value={form.message}
           onChange={(event) => updateField("message", event.target.value)}
         />
       </label>
       <button
         type="submit"
-        className="focus-ring mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-exo-blue-900 px-6 text-sm font-extrabold tracking-tight text-white shadow-[0_24px_80px_rgba(0,48,135,.22)] transition duration-300 hover:-translate-y-0.5 hover:bg-exo-blue-700"
+        className="focus-ring mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-exo-blue-900 px-6 text-sm font-extrabold text-white transition hover:bg-exo-blue-700"
       >
         Enviar pelo WhatsApp <ArrowRight size={18} />
       </button>
@@ -101,10 +77,10 @@ function Field({
 }) {
   return (
     <label className="mt-4 block">
-      <span className="text-sm font-bold text-neutral-700">{label}</span>
+      <span className="mb-2 block text-sm font-bold text-exo-ink">{label}</span>
       <input
         type={type}
-        className="focus-ring mt-2 h-12 w-full rounded-2xl border border-neutral-200 bg-neutral-50 px-4 text-base outline-none transition focus:bg-white"
+        className="focus-ring h-12 w-full rounded-2xl border border-neutral-200 bg-exo-page px-4 text-base text-exo-ink outline-none transition focus:border-exo-blue-500 focus:bg-white"
         placeholder={placeholder}
         value={value}
         onChange={(event) => onChange(event.target.value)}

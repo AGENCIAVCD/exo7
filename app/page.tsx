@@ -2,12 +2,14 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import {
   ArrowRight,
+  BadgeCheck,
   CheckCircle2,
   Clock3,
-  Layers3,
+  Hammer,
   Leaf,
   Ruler,
   ShieldCheck,
+  ThermometerSun,
   Zap
 } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
@@ -18,156 +20,189 @@ import { ButtonLink } from "@/components/ui/button";
 import { buildWhatsAppUrl } from "@/lib/contact";
 
 export const metadata: Metadata = {
-  title: "EXO7 Build | Engenharia integrada para construção rápida",
+  title: "EXO7 Build | Engenharia integrada para obra rápida",
   description:
-    "Obras rápidas, limpas e sustentáveis com EPS, paredes prontas termoacústicas, painéis monolíticos e Steel Frame."
+    "Site da EXO7 Build: construção com EPS, paredes prontas termoacústicas, painéis monolíticos e Steel Frame."
 };
 
 const whatsapp = buildWhatsAppUrl("Olá, quero planejar uma obra com a EXO7.");
 
 const proof = [
-  ["28 dias", "execução de referência para casas compactas"],
-  ["4x", "mais velocidade em etapas de vedação"],
-  ["70%", "menos resíduos em sistemas industrializados"]
+  { value: "28 dias", label: "referência para casas compactas" },
+  { value: "4x", label: "mais velocidade em etapas de vedação" },
+  { value: "70%", label: "menos resíduos em sistemas industrializados" }
 ];
 
 const advantages = [
   {
     icon: Clock3,
-    title: "Prazo como premissa",
-    text: "A solução construtiva nasce junto com o cronograma, reduzindo etapas úmidas, espera e retrabalho."
+    title: "Prazo controlado",
+    text: "A solução construtiva é escolhida pensando no cronograma real da obra."
   },
   {
-    icon: ShieldCheck,
-    title: "Desempenho previsível",
-    text: "Paredes e estruturas compatibilizadas para conforto, vedação, acabamento e manutenção."
+    icon: ThermometerSun,
+    title: "Conforto termoacústico",
+    text: "Paredes com melhor estabilidade térmica e redução de ruído para o uso diário."
   },
   {
     icon: Leaf,
-    title: "Canteiro mais limpo",
-    text: "Menos desperdício, menos entulho e uma operação mais organizada do início à entrega."
+    title: "Menos desperdício",
+    text: "Sistemas industrializados reduzem entulho e tornam o canteiro mais limpo."
   },
   {
     icon: Ruler,
-    title: "Precisão de montagem",
-    text: "Sistemas industrializados trazem medidas, encaixes e decisões técnicas para antes da obra."
+    title: "Execução precisa",
+    text: "Medidas, encaixes e interferências são resolvidos antes da montagem."
   }
 ];
 
 const technologies = [
   {
-    label: "EPS e Paredes Prontas",
-    title: "Vedação rápida com conforto termoacústico.",
-    text: "Painéis e soluções termoacústicas para acelerar fechamentos, reduzir resíduos e entregar melhor estabilidade térmica.",
+    title: "EPS e Paredes Prontas",
+    subtitle: "Vedação rápida com conforto termoacústico.",
+    text: "Indicado para obras que precisam reduzir etapas, melhorar isolamento e ganhar previsibilidade no fechamento.",
     image: "/assets/eps-paredes-prontas.png",
-    bullets: ["isolamento", "obra seca", "menos retrabalho"]
+    bullets: ["montagem rápida", "menos entulho", "bom isolamento"]
   },
   {
-    label: "Steel Frame",
-    title: "Estrutura leve para construir com precisão.",
-    text: "Sistema industrializado para obras ágeis, ampliações e projetos que precisam de menor carga e alta previsibilidade.",
+    title: "Steel Frame",
+    subtitle: "Estrutura leve para execução limpa.",
+    text: "Sistema ideal para construções ágeis, ampliações e projetos que pedem precisão, menor peso e canteiro organizado.",
     image: "/assets/steel-frame.png",
-    bullets: ["leveza estrutural", "montagem precisa", "canteiro limpo"]
+    bullets: ["estrutura leve", "alta precisão", "obra seca"]
   }
 ];
 
 export default function Home() {
   return (
-    <main id="top" className="overflow-hidden bg-[#f7f9fc] text-neutral-950">
+    <main id="top" className="bg-exo-page text-neutral-950">
       <Navbar />
       <FloatingWhatsApp />
 
-      <section className="relative min-h-[100svh] bg-white pt-20">
-        <div className="absolute inset-x-0 top-20 h-px bg-neutral-200" />
-        <div className="section-shell grid min-h-[calc(100svh-5rem)] items-center gap-10 py-14 lg:grid-cols-[0.86fr_1.14fr]">
-          <Reveal className="max-w-2xl">
-            <p className="mb-6 text-xs font-black uppercase tracking-[0.28em] text-exo-blue-900">
-              EXO7 Build
-            </p>
-            <h1 className="text-balance font-display text-[clamp(3.2rem,7.5vw,7rem)] font-semibold leading-[0.88] tracking-[-0.075em] text-[#071632]">
-              Obra rápida com engenharia de verdade.
-            </h1>
-            <p className="mt-7 max-w-xl text-lg leading-8 text-exo-slate-600 md:text-xl">
-              Integramos projeto, sistema construtivo e execução para construir com EPS, paredes prontas e Steel Frame sem improviso no canteiro.
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href={whatsapp} target="_blank" rel="noreferrer" className="gap-2">
-                Falar com a engenharia <ArrowRight size={18} />
-              </ButtonLink>
-              <ButtonLink href="#tecnologias" variant="secondary">
-                Ver sistemas
-              </ButtonLink>
+      <section className="border-b border-neutral-200 bg-white pt-24">
+        <div className="section-shell grid gap-8 py-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-14">
+          <Reveal>
+            <div className="max-w-2xl">
+              <p className="eyebrow">EXO7 Build</p>
+              <h1 className="mt-4 text-balance font-display text-5xl font-semibold leading-[0.95] tracking-[-0.065em] text-exo-ink md:text-7xl">
+                Construção rápida, limpa e bem planejada.
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-exo-muted">
+                Engenharia integrada para executar obras com EPS, paredes prontas termoacústicas e Steel Frame, reduzindo improviso, sujeira e atraso no canteiro.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <ButtonLink href={whatsapp} target="_blank" rel="noreferrer" className="gap-2">
+                  Falar com a EXO7 <ArrowRight size={18} />
+                </ButtonLink>
+                <ButtonLink href="#tecnologias" variant="secondary">
+                  Ver tecnologias
+                </ButtonLink>
+              </div>
             </div>
           </Reveal>
-
-          <Reveal delay={0.1}>
-            <div className="relative">
-              <div className="absolute inset-x-8 bottom-4 h-20 rounded-full bg-exo-blue-900/14 blur-3xl" />
-              <Image
-                src="/assets/hero.png"
-                width={1672}
-                height={941}
-                alt="Casa isométrica moderna construída com sistemas EXO7"
-                priority
-                sizes="(min-width: 1024px) 58vw, 100vw"
-                className="relative z-10 w-full"
-              />
-            </div>
+          <Reveal delay={0.08}>
+            <MediaFrame
+              src="/assets/hero.png"
+              alt="Projeto residencial isométrico da EXO7"
+              priority
+              className="aspect-[16/10]"
+            />
           </Reveal>
         </div>
       </section>
 
-      <section className="bg-[#071632] py-8 text-white">
-        <div className="section-shell grid gap-6 md:grid-cols-3">
-          {proof.map(([value, label]) => (
-            <div key={value} className="border-l border-white/15 pl-5">
-              <strong className="font-display text-4xl font-semibold tracking-[-0.06em]">{value}</strong>
-              <p className="mt-2 max-w-xs text-sm leading-6 text-blue-100">{label}</p>
+      <section className="bg-exo-ink text-white">
+        <div className="section-shell grid gap-0 py-5 md:grid-cols-3">
+          {proof.map((item) => (
+            <div key={item.value} className="border-white/12 py-4 md:border-l md:px-6 md:first:border-l-0">
+              <strong className="font-display text-4xl font-semibold tracking-[-0.05em]">{item.value}</strong>
+              <p className="mt-1 text-sm leading-6 text-blue-100">{item.label}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="quem-somos" className="bg-white py-20 md:py-28">
-        <div className="section-shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+      <section id="quem-somos" className="section-block bg-white">
+        <div className="section-shell grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
           <Reveal>
             <SectionIntro
               eyebrow="Quem somos"
-              title="Uma engenharia que organiza a obra antes dela começar."
+              title="A EXO7 organiza a obra antes da primeira montagem."
             />
           </Reveal>
-          <Reveal delay={0.08}>
-            <div className="max-w-3xl border-t border-neutral-200 pt-7">
-              <p className="text-2xl leading-10 tracking-[-0.03em] text-[#18243a] md:text-3xl">
-                A EXO7 combina projeto, tecnologia construtiva e execução para reduzir decisões tardias. O resultado é uma obra mais rápida, limpa e previsível.
+          <Reveal delay={0.06}>
+            <div className="content-panel">
+              <p className="text-xl leading-9 tracking-[-0.025em] text-exo-ink md:text-2xl">
+                O trabalho começa na compatibilização entre projeto, sistema construtivo, materiais e cronograma. Assim, a execução fica mais previsível e o cliente entende o que será feito, quando será feito e por quê.
               </p>
-              <p className="mt-6 leading-8 text-exo-slate-600">
-                Nosso foco não é “parecer tecnológico”. É usar tecnologia para encurtar prazo, melhorar desempenho e dar clareza técnica para cada etapa da construção.
-              </p>
+              <div className="mt-7 grid gap-4 sm:grid-cols-3">
+                {["Projeto", "Sistema", "Execução"].map((step) => (
+                  <div key={step} className="rounded-2xl border border-neutral-200 bg-white p-4">
+                    <BadgeCheck className="mb-3 text-exo-blue-900" size={22} />
+                    <p className="font-semibold text-exo-ink">{step}</p>
+                    <p className="mt-1 text-sm leading-6 text-exo-muted">decisão técnica conectada ao prazo</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section id="vantagens" className="bg-[#f7f9fc] py-20 md:py-28">
+      <section id="vantagens" className="section-block bg-exo-page">
         <div className="section-shell">
           <Reveal>
             <SectionIntro
               eyebrow="Vantagens"
-              title="Menos ruído visual. Mais controle de obra."
-              text="A proposta da EXO7 é simples: projetar para executar melhor."
+              title="Benefícios claros, sem promessa vazia."
+              text="O sistema construtivo certo reduz gargalos e transforma o canteiro em uma operação mais controlada."
             />
           </Reveal>
-          <div className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2">
-            {advantages.map(({ icon: Icon, title, text }, index) => (
-              <Reveal key={title} delay={index * 0.04}>
-                <article className="grid grid-cols-[3rem_1fr] gap-5 border-t border-neutral-200 pt-6">
-                  <div className="grid size-12 place-items-center rounded-full bg-white text-exo-blue-900 shadow-[0_10px_30px_rgba(15,23,42,.08)]">
+          <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {advantages.map(({ icon: Icon, title, text }) => (
+              <Reveal key={title}>
+                <article className="h-full rounded-3xl border border-neutral-200 bg-white p-5 shadow-sm">
+                  <div className="grid size-11 place-items-center rounded-2xl bg-exo-sky-100 text-exo-blue-900">
                     <Icon size={21} />
                   </div>
-                  <div>
-                    <h3 className="font-display text-2xl font-semibold tracking-[-0.045em] text-[#071632]">{title}</h3>
-                    <p className="mt-3 leading-7 text-exo-slate-600">{text}</p>
+                  <h3 className="mt-5 font-display text-xl font-semibold tracking-[-0.035em] text-exo-ink">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-exo-muted">{text}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="tecnologias" className="section-block bg-white">
+        <div className="section-shell">
+          <Reveal>
+            <SectionIntro
+              eyebrow="Tecnologias"
+              title="Duas frentes para acelerar sem bagunçar a obra."
+              text="Cada tecnologia aparece com uma imagem contida, descrição objetiva e uso claro."
+            />
+          </Reveal>
+          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+            {technologies.map((tech) => (
+              <Reveal key={tech.title}>
+                <article className="overflow-hidden rounded-[2rem] border border-neutral-200 bg-white shadow-sm">
+                  <div className="bg-[#f2f6fb] p-4">
+                    <MediaFrame src={tech.image} alt={`Sistema EXO7: ${tech.title}`} className="aspect-[4/3]" />
+                  </div>
+                  <div className="p-6">
+                    <p className="eyebrow">{tech.title}</p>
+                    <h3 className="mt-3 font-display text-3xl font-semibold leading-tight tracking-[-0.045em] text-exo-ink">
+                      {tech.subtitle}
+                    </h3>
+                    <p className="mt-4 leading-7 text-exo-muted">{tech.text}</p>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {tech.bullets.map((bullet) => (
+                        <span key={bullet} className="rounded-full bg-exo-sky-100 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-exo-blue-900">
+                          {bullet}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </article>
               </Reveal>
@@ -176,73 +211,46 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="tecnologias" className="bg-white py-20 md:py-28">
-        <div className="section-shell">
+      <section id="portfolio" className="section-block bg-exo-ink text-white">
+        <div className="section-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <Reveal>
             <SectionIntro
-              eyebrow="Tecnologias"
-              title="Dois sistemas fortes. Uma execução integrada."
-              text="As imagens aparecem onde ajudam a entender a solução, não como decoração."
+              eyebrow="Portfólio"
+              title="Resultado final com método por trás."
+              text="A imagem precisa mostrar o destino da obra: acabamento, organização e sistema construtivo bem resolvido."
+              light
             />
-          </Reveal>
-          <div className="mt-16 grid gap-16">
-            {technologies.map((technology, index) => (
-              <TechnologyFeature key={technology.label} reverse={index % 2 === 1} {...technology} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="portfolio" className="bg-[#071632] py-20 text-white md:py-28">
-        <div className="section-shell">
-          <Reveal>
-            <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
-              <SectionIntro
-                eyebrow="Portfólio"
-                title="Imagem de resultado, não vitrine aleatória."
-                text="A leitura precisa ser imediata: obra limpa, sistema definido e acabamento compatível com o projeto."
-                light
-              />
-              <p className="max-w-xl leading-8 text-blue-100 lg:justify-self-end">
-                A EXO7 organiza o caminho entre estudo, sistema e montagem para que o resultado final seja consequência de método, não sorte.
-              </p>
+            <div className="mt-7 grid gap-3 text-sm leading-6 text-blue-100">
+              <p className="flex gap-2"><CheckCircle2 className="mt-0.5 shrink-0 text-exo-green-500" size={18} /> Projeto pensado para execução rápida.</p>
+              <p className="flex gap-2"><CheckCircle2 className="mt-0.5 shrink-0 text-exo-green-500" size={18} /> Menos interferência e mais previsibilidade.</p>
+              <p className="flex gap-2"><CheckCircle2 className="mt-0.5 shrink-0 text-exo-green-500" size={18} /> Solução compatível com uso, prazo e orçamento.</p>
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <div className="mt-14 overflow-hidden rounded-[2rem] bg-white/5 ring-1 ring-white/10">
-              <Image
-                src="/assets/ultima-cta.png"
-                width={1916}
-                height={821}
-                alt="Casa finalizada com solução construtiva EXO7"
-                sizes="(min-width: 1180px) 1180px, 100vw"
-                className="w-full"
-              />
-            </div>
+            <MediaFrame src="/assets/ultima-cta.png" alt="Casa finalizada com solução construtiva EXO7" className="aspect-[16/8]" dark />
           </Reveal>
         </div>
       </section>
 
-      <section id="por-que" className="bg-white py-20 md:py-28">
-        <div className="section-shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <section id="por-que" className="section-block bg-white">
+        <div className="section-shell grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <Reveal>
             <SectionIntro
               eyebrow="Por que EXO7"
-              title="Construção civil com menos improviso."
-              text="Não é sobre trocar alvenaria por um material diferente. É sobre redesenhar o processo para ganhar prazo e previsibilidade."
+              title="Mais engenharia, menos tentativa e erro."
             />
           </Reveal>
-          <Reveal delay={0.08}>
-            <div className="divide-y divide-neutral-200 border-y border-neutral-200">
+          <Reveal delay={0.06}>
+            <div className="grid gap-3">
               {[
-                "Projeto compatibilizado antes da compra de materiais.",
-                "Sistema construtivo escolhido pelo objetivo da obra.",
-                "Execução limpa, rápida e com menos interferências.",
-                "Comunicação direta entre engenharia, obra e cliente."
-              ].map((item) => (
-                <div key={item} className="flex gap-4 py-5">
-                  <CheckCircle2 className="mt-1 shrink-0 text-exo-green-500" size={20} />
-                  <p className="text-lg leading-7 text-[#18243a]">{item}</p>
+                ["Compatibilização", "Projeto, sistema construtivo e execução definidos no mesmo raciocínio."],
+                ["Cronograma", "Tecnologia escolhida pelo impacto real no prazo da obra."],
+                ["Canteiro", "Menos entulho, menos etapas úmidas e menos improviso."],
+                ["Cliente", "Comunicação clara sobre escolhas, etapas e próximos passos."]
+              ].map(([title, text]) => (
+                <div key={title} className="rounded-2xl border border-neutral-200 bg-exo-page p-5">
+                  <h3 className="font-display text-xl font-semibold tracking-[-0.035em] text-exo-ink">{title}</h3>
+                  <p className="mt-2 leading-7 text-exo-muted">{text}</p>
                 </div>
               ))}
             </div>
@@ -250,18 +258,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contato" className="bg-[#071632] py-20 text-white md:py-28">
-        <div className="section-shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+      <section id="contato" className="section-block bg-exo-ink text-white">
+        <div className="section-shell grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
           <Reveal>
             <SectionIntro
               eyebrow="Contato"
-              title="Vamos avaliar o melhor sistema para sua obra."
-              text="Envie metragem, cidade e tipo de projeto. A resposta deve apontar caminho técnico, não só orçamento genérico."
+              title="Vamos definir o sistema certo para sua obra."
+              text="Envie cidade, metragem aproximada e tipo de projeto. A EXO7 responde com uma direção técnica inicial."
               light
             />
-            <div className="mt-10 grid gap-4 border-y border-white/12 py-7 text-blue-100">
-              <p className="flex items-center gap-3"><Zap size={19} /> Estudos para obras residenciais e comerciais.</p>
-              <p className="flex items-center gap-3"><Layers3 size={19} /> EPS, paredes prontas, painéis monolíticos e Steel Frame.</p>
+            <div className="mt-7 rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+              <p className="flex gap-3 text-sm leading-6 text-blue-100"><Zap className="mt-0.5 shrink-0 text-exo-blue-500" size={18} /> Atendimento para casas, ampliações e projetos comerciais.</p>
+              <p className="mt-3 flex gap-3 text-sm leading-6 text-blue-100"><Hammer className="mt-0.5 shrink-0 text-exo-blue-500" size={18} /> EPS, paredes prontas, painéis monolíticos e Steel Frame.</p>
             </div>
           </Reveal>
           <Reveal delay={0.08}>
@@ -270,8 +278,8 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-[#050f24] py-10 text-white">
-        <div className="section-shell flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <footer className="bg-[#050f24] py-8 text-white">
+        <div className="section-shell flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <Image
             src="/assets/logo/logo-horizontal.png"
             width={170}
@@ -280,7 +288,7 @@ export default function Home() {
             sizes="170px"
             className="h-9 w-auto brightness-0 invert"
           />
-          <p className="max-w-2xl text-sm leading-6 text-blue-100">
+          <p className="text-sm leading-6 text-blue-100">
             EXO7 Build: engenharia integrada para obras rápidas, limpas, econômicas e sustentáveis.
           </p>
           <a className="focus-ring rounded-full text-sm font-bold text-blue-100 hover:text-white" href="#top">
@@ -305,14 +313,12 @@ function SectionIntro({
 }) {
   return (
     <div className="max-w-3xl">
-      <p className={light ? "mb-4 text-xs font-black uppercase tracking-[0.26em] text-blue-200" : "mb-4 text-xs font-black uppercase tracking-[0.26em] text-exo-blue-900"}>
-        {eyebrow}
-      </p>
-      <h2 className={light ? "text-balance font-display text-4xl font-semibold tracking-[-0.065em] text-white md:text-6xl" : "text-balance font-display text-4xl font-semibold tracking-[-0.065em] text-[#071632] md:text-6xl"}>
+      <p className={light ? "eyebrow text-blue-200" : "eyebrow"}>{eyebrow}</p>
+      <h2 className={light ? "mt-3 text-balance font-display text-4xl font-semibold leading-tight tracking-[-0.055em] text-white md:text-5xl" : "mt-3 text-balance font-display text-4xl font-semibold leading-tight tracking-[-0.055em] text-exo-ink md:text-5xl"}>
         {title}
       </h2>
       {text ? (
-        <p className={light ? "mt-6 max-w-2xl text-lg leading-8 text-blue-100" : "mt-6 max-w-2xl text-lg leading-8 text-exo-slate-600"}>
+        <p className={light ? "mt-5 max-w-2xl leading-8 text-blue-100" : "mt-5 max-w-2xl leading-8 text-exo-muted"}>
           {text}
         </p>
       ) : null}
@@ -320,49 +326,29 @@ function SectionIntro({
   );
 }
 
-function TechnologyFeature({
-  label,
-  title,
-  text,
-  image,
-  bullets,
-  reverse = false
+function MediaFrame({
+  src,
+  alt,
+  className,
+  priority = false,
+  dark = false
 }: {
-  label: string;
-  title: string;
-  text: string;
-  image: string;
-  bullets: string[];
-  reverse?: boolean;
+  src: string;
+  alt: string;
+  className: string;
+  priority?: boolean;
+  dark?: boolean;
 }) {
   return (
-    <Reveal>
-      <article className={`grid gap-10 border-t border-neutral-200 pt-10 lg:grid-cols-2 lg:items-center ${reverse ? "lg:[&>div:first-child]:order-2" : ""}`}>
-        <div>
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-exo-blue-900">{label}</p>
-          <h3 className="mt-4 max-w-xl font-display text-4xl font-semibold leading-none tracking-[-0.06em] text-[#071632]">
-            {title}
-          </h3>
-          <p className="mt-6 max-w-xl leading-8 text-exo-slate-600">{text}</p>
-          <div className="mt-7 flex flex-wrap gap-2">
-            {bullets.map((bullet) => (
-              <span key={bullet} className="rounded-full border border-neutral-200 bg-[#f7f9fc] px-4 py-2 text-sm font-bold text-[#18243a]">
-                {bullet}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="rounded-[2rem] bg-[#f7f9fc] p-4">
-          <Image
-            src={image}
-            width={1448}
-            height={1086}
-            alt={`Sistema construtivo EXO7: ${title}`}
-            sizes="(min-width: 1024px) 520px, 100vw"
-            className="w-full object-contain"
-          />
-        </div>
-      </article>
-    </Reveal>
+    <div className={`relative overflow-hidden rounded-[1.75rem] ${dark ? "bg-white/[0.06]" : "bg-[#eef4fb]"} ${className}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        sizes="(min-width: 1024px) 560px, 100vw"
+        className="object-contain p-3"
+      />
+    </div>
   );
 }
