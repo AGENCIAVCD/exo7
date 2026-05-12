@@ -27,7 +27,7 @@ export function FloatingWhatsApp() {
         target="_blank"
         rel="noreferrer"
         aria-label="Falar com a EXO7 pelo WhatsApp"
-        className="focus-ring grid size-14 place-items-center rounded-full bg-exo-green-500 text-white shadow-[0_8px_32px_rgba(0,168,107,.35)] transition hover:-translate-y-1"
+        className="premium-float premium-float-whatsapp focus-ring grid size-14 place-items-center rounded-full text-white"
         style={{ color: "#ffffff" }}
       >
         <MessageCircle size={26} />
@@ -37,7 +37,7 @@ export function FloatingWhatsApp() {
       type="button"
       aria-label="Voltar ao topo"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className={`focus-ring fixed bottom-5 right-5 z-50 grid size-12 place-items-center rounded-full bg-exo-blue-900 text-white shadow-[0_8px_32px_rgba(0,48,135,.28)] transition duration-300 hover:-translate-y-1 ${
+      className={`premium-float premium-float-top focus-ring fixed bottom-5 right-5 z-50 grid size-12 place-items-center rounded-full text-white ${
         showTop ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       }`}
       style={{ color: "#ffffff" }}
